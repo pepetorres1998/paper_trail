@@ -1113,7 +1113,7 @@ associations can be redefined.
 ##### Example: adding a `counter_cache` to `item` association
 
 ```ruby
-# app/models/paper_trail/version.rb
+# config/initializers/version.rb
 module PaperTrail
   class Version < ActiveRecord::Base
     belongs_to :item, polymorphic: true, counter_cache: true
@@ -1164,7 +1164,7 @@ If you must use [protected_attributes][17] for now, and want to use PT > 5, you
 can reopen `PaperTrail::Version` and add the following `attr_accessible` fields:
 
 ```ruby
-# app/models/paper_trail/version.rb
+# config/initializers/version.rb
 module PaperTrail
   class Version < ActiveRecord::Base
     include PaperTrail::VersionConcern
@@ -1222,7 +1222,7 @@ must let ActiveRecord know that the `PaperTrail::Version` class is an
 `abstract_class`.
 
 ```ruby
-# app/models/paper_trail/version.rb
+# config/initializers/paper_trail.rb
 module PaperTrail
   class Version < ActiveRecord::Base
     include PaperTrail::VersionConcern
